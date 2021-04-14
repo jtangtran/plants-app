@@ -1,4 +1,4 @@
-create database plants;
+-- create database plants;
 
 create table plant(
     plant_id SERIAL PRIMARY KEY,
