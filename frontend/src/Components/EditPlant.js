@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 
 const EditPlant = ( {plant} ) => {
     const [description, setDescription] = useState(plant.description);
@@ -20,7 +20,7 @@ const EditPlant = ( {plant} ) => {
         }
     }
     return (
-        <Fragment>
+        <div>
             <button type="button" className="btn btn-warning" data-toggle="modal" data-target={`#id${plant.plant_id}`}>Edit</button>
             <div id={`id${plant.plant_id}`} className="modal fade" role="dialog" onClick={() => {setDescription(plant.description); setTitle(plant.title)}}>
                 <div className="modal-dialog">
@@ -44,7 +44,7 @@ const EditPlant = ( {plant} ) => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </div>
     )
 }
 
