@@ -21,11 +21,12 @@ const InputPlant = () => {
     }
     return (
         <Fragment>
-            <h1 className="text-center mt-5">Input Plant</h1>
+            <h1 className="text-center mt-5">Plants!</h1>
             <form className="d-flex mt-5" onSubmit={onSubmit}>
                 <input type="text" className="form-control" value={title} onChange={e => setTitle(e.target.value)} placeholder="Plant Title" required/>
                 <div className="ml-1 mr-1"></div>
                 <input type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)} placeholder="Plant Description" required/>
+                <div className="ml-1 mr-1"></div>
                 <button className="btn btn-success">Add</button>
             </form>
         </Fragment>

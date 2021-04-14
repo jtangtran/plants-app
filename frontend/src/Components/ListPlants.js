@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 
+import EditPlant from './EditPlant';
+
 const ListPlants = () => {
     const [plants, setPlants] = useState([]);
 
@@ -33,33 +35,26 @@ const ListPlants = () => {
     return (
         <Fragment>
             <table className="table mt-5 text-center">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr> */}
-      {plants.map((plant) => (
-          <tr key={plant.plant_id}>
-              <td>{plant.title}</td>
-              <td>{plant.description}</td>
-              <td>Edit</td>
-              <td><button className="btn btn-danger" onClick={() => deletePlant(plant.plant_id)}>Delete</button></td>
-          </tr>
-
-      ))}
-    </tbody>
-  </table>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {plants.map((plant) => (
+                        <tr key={plant.plant_id}>
+                            <td>{plant.title}</td>
+                            <td>{plant.description}</td>
+                            <td><EditPlant plant={plant}/></td>
+                            <td><button className="btn btn-danger" onClick={() => deletePlant(plant.plant_id)}>Delete</button></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </Fragment>
-    
     );
 };
 
