@@ -31,11 +31,22 @@ app.get("/plants", async(req, res) => {
     }
 });
 
-//get a plant
+//get a plant by id
 app.get("/plants/:id", async(req, res) => {
     try {
         const { id } = req.params;
         const plant = await pool.query("select * from plant where plant_id = $1", [id]);
+        res.json(plant.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
+//get a plant by title
+app.get("/plants/title/:title", async(req, res) => {
+    try {
+        const { title } = req.params;
+        const plant = await pool.query("select * from plant where title like $1", [`${title}%`]);
         res.json(plant.rows[0]);
     } catch (err) {
         console.error(err.message);

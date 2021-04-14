@@ -34,8 +34,14 @@ const ListPlants = () => {
     }
 
     //search plant by title
-    const findPlantByTitle = () => {
-        
+    const findPlantByTitle = async () => {
+        try {
+            const res = await fetch(`http://localhost:5000/plants/title/${searchTitle}`);
+            const data = await res.json();
+            setPlants(plants.filter(plant => plant.plant_id === data.plant_id));
+        } catch (err) {
+            console.error(err.message);
+        }
     };
 
     const onChangeSearchTitle = e => {
@@ -43,6 +49,15 @@ const ListPlants = () => {
         setSearchTitle(searchTitle);
     };
 
+    //clears search result
+    const clearSearch = () => {
+        try {
+            setSearchTitle("");
+            getPlants();
+        } catch (err) {
+            console.error(err);
+        }
+    }
     return (
         <Fragment>
             <h5 className="text-center mb-3 mt-3">Search for your favourite plant!</h5>
@@ -63,6 +78,9 @@ const ListPlants = () => {
                     >
                     Search
                     </button>
+                    <div className="ml-1 mr-1"></div>
+                    <button type="button" className="btn btn-outline-primary" onClick={clearSearch}>Clear Search Results</button>
+
                 </div>
             </div>
             <table className="table mt-5 text-center">
