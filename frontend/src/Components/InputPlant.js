@@ -8,7 +8,7 @@ const InputPlant = () => {
         e.preventDefault();
         try {
             const body = {title, description};
-            const res = await fetch("http://localhost:5000/plants", {
+            const res = await fetch("/plants", {
                 method: "POST",
                 headers: { "Content-Type" : "application/json"},
                 body: JSON.stringify(body)

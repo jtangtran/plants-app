@@ -9,7 +9,7 @@ const EditPlant = ( {plant} ) => {
         e.preventDefault();
         try {
             const body = { title, description };
-            const res = await fetch(`http://localhost:5000/plants/${plant.plant_id}`, {
+            const res = await fetch(`/plants/${plant.plant_id}`, {
                 method: "PUT",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(body)

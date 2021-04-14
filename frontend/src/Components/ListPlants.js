@@ -13,7 +13,7 @@ const ListPlants = () => {
     //gets all the plants
     const getPlants = async () => {
         try {
-            const res = await fetch("http://localhost:5000/plants");
+            const res = await fetch("/plants");
             const data = await res.json();
             setPlants(data);
         } catch (err) {
@@ -24,7 +24,7 @@ const ListPlants = () => {
     //deletes a plant
     const deletePlant = async (id) => {
         try {
-            const deletePlant = await fetch (`http://localhost:5000/plants/${id}`, {
+            const deletePlant = await fetch (`/plants/${id}`, {
                 method: "DELETE"
             });
             setPlants(plants.filter(plant => plant.plant_id !== id));
@@ -36,7 +36,7 @@ const ListPlants = () => {
     //search plant by title
     const findPlantByTitle = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/plants/title/${searchTitle}`);
+            const res = await fetch(`/plants/title/${searchTitle}`);
             const data = await res.json();
             //compares the two arrays of objects and find the matching values
             setPlants(plants.filter(({ plant_id: id1 }) => data.some(({ plant_id: id2 }) => id2 === id1)));

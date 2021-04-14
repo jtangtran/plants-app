@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Plants App",
   "main": "index.js",
+  "engines":{
+    "node": "12.x"
+  },
   "scripts": {
+    "start" : "node index.js",
+    "heroku-postbuild" : "cd frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jennifer",
