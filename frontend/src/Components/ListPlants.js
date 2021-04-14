@@ -7,11 +7,24 @@ const ListPlants = () => {
         getPlants();
     }, []);
 
+    //gets all the plants
     const getPlants = async () => {
         try {
             const res = await fetch("http://localhost:5000/plants");
             const data = await res.json();
             setPlants(data);
+        } catch (err) {
+            console.error(err.message);
+        }
+    }
+
+    //deletes a plant
+    const deletePlant = async (id) => {
+        try {
+            const deletePlant = await fetch (`http://localhost:5000/plants/${id}`, {
+                method: "DELETE"
+            });
+            setPlants(plants.filter(plant => plant.plant_id !== id));
         } catch (err) {
             console.error(err.message);
         }
@@ -34,12 +47,12 @@ const ListPlants = () => {
         <td>Doe</td>
         <td>john@example.com</td>
       </tr> */}
-      {plants.map((plant, index) => (
-          <tr key={index}>
+      {plants.map((plant) => (
+          <tr key={plant.plant_id}>
               <td>{plant.title}</td>
               <td>{plant.description}</td>
               <td>Edit</td>
-              <td>Delete</td>
+              <td><button className="btn btn-danger" onClick={() => deletePlant(plant.plant_id)}>Delete</button></td>
           </tr>
 
       ))}
