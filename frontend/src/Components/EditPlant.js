@@ -38,7 +38,7 @@ const EditPlant = ( {plant} ) => {
 
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-warning" data-dismiss="modal" onClick={e => updateContent(e)}>Edit</button>
+                            <button type="button" className="btn btn-success" data-dismiss="modal" onClick={e => updateContent(e)}>Update</button>
                             <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => {setDescription(plant.description); setTitle(plant.title)}}>Close</button>
                         </div>
                     </div>

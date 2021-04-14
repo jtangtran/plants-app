@@ -47,7 +47,7 @@ app.get("/plants/title/:title", async(req, res) => {
     try {
         const { title } = req.params;
         const plant = await pool.query("select * from plant where title like $1", [`${title}%`]);
-        res.json(plant.rows[0]);
+        res.json(plant.rows);
     } catch (err) {
         console.error(err.message);
     }

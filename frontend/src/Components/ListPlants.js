@@ -38,7 +38,7 @@ const ListPlants = () => {
         try {
             const res = await fetch(`http://localhost:5000/plants/title/${searchTitle}`);
             const data = await res.json();
-            setPlants(plants.filter(plant => plant.plant_id === data.plant_id));
+            setPlants(plants.filter(({ plant_id: id1 }) => data.some(({ plant_id: id2 }) => id2 === id1)));
         } catch (err) {
             console.error(err.message);
         }
@@ -60,7 +60,7 @@ const ListPlants = () => {
     }
     return (
         <Fragment>
-            <h5 className="text-center mb-3 mt-3">Search for your favourite plant!</h5>
+            <h5 className="text-center mb-3 mt-4">Search for your favourite plant title!</h5>
             <div className="input-group mb-2">
                 <input
                     type="text"
@@ -86,8 +86,8 @@ const ListPlants = () => {
             <table className="table mt-5 text-center">
                 <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Plant Title</th>
+                    <th>Plant Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

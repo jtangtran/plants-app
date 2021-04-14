@@ -21,7 +21,7 @@ const InputPlant = () => {
     }
     return (
         <Fragment>
-            <h1 className="text-center mt-5">Plants Galore!</h1>
+            <h1 className="text-center mt-4">Plants Galore!</h1>
             <h3 className="text-center"> Add your favourite plants!</h3>
             <form className="d-flex mt-4" onSubmit={onSubmit}>
                 <input type="text" className="form-control" value={title} onChange={e => setTitle(e.target.value)} placeholder="Plant Title" required/>
