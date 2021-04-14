@@ -8,6 +8,8 @@ router.route("/plants").post(plants.create);
 router.route("/plants").get(plants.getAllPlants);
 
 router.route("/plants/:id").get(plants.getPlantById);
+
+router.route("/plants/title/:title").get(plants.getPlantInfoByTitle);
  
 router.route("/plants/:id").put(plants.updatePlant);
 

@@ -15,7 +15,7 @@ const create = async(req, res) => {
 // //gets all the plants
 const getAllPlants = async (req, res) => {
     try {
-        const allPlants = await pool.query("select * from plant");
+        const allPlants = await pool.query("select * from plant order by title");
         res.json(allPlants.rows);
     } catch (err) {
         console.error(err.message);
