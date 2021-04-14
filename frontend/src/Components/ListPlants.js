@@ -4,6 +4,7 @@ import EditPlant from './EditPlant';
 
 const ListPlants = () => {
     const [plants, setPlants] = useState([]);
+    const [searchTitle, setSearchTitle] = useState("");
 
     useEffect(() => {
         getPlants();
@@ -32,8 +33,38 @@ const ListPlants = () => {
         }
     }
 
+    //search plant by title
+    const findPlantByTitle = () => {
+        
+    };
+
+    const onChangeSearchTitle = e => {
+        const searchTitle = e.target.value;
+        setSearchTitle(searchTitle);
+    };
+
     return (
         <Fragment>
+            <h5 className="text-center mb-3 mt-3">Search for your favourite plant!</h5>
+            <div className="input-group mb-2">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search by title"
+                    value={searchTitle}
+                    onChange={onChangeSearchTitle}
+                />
+                <div className="ml-1 mr-1"></div>
+                <div className="input-group-append">
+                    <button 
+                        className="btn btn-primary"
+                        type="button"
+                        onClick={findPlantByTitle}    
+                    >
+                    Search
+                    </button>
+                </div>
+            </div>
             <table className="table mt-5 text-center">
                 <thead>
                 <tr>
