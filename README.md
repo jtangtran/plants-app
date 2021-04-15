@@ -5,6 +5,8 @@
 ### Server
 First, I created the server side of the application using NodeJS, Express, and PostgreSQL. I tested the API endpoints using Postman to ensure that everything was working correctly and properly. I also included a catchAll method which redirects back to the homepage to avoid the browser displaying errors if the user tries to go to a part of the application that isn't available/set. 
 
+The documentation for my API endpoints can be found here: https://jtangtran.github.io/plants-app-api/
+
 ### Frontend
 After testing the server, I started coding the frontend side using React and Bootstrap making sure that the application was mobile friendly and responsive. After completing the base of the application, I started making fetch calls to the API to retrieve/send data. Once I finished implementing and testing the application, I proceeded to deploy the application to Heroku. 
 
