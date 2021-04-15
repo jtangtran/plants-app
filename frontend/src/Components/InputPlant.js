@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+//Component that adds a plant based on user's input
 const InputPlant = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")

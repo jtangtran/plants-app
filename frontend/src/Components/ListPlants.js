@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import EditPlant from './EditPlant';
 
+//Component that lists all the plants and updates the list of plants based on search title (if the user searches for a plant)
 const ListPlants = () => {
     const [plants, setPlants] = useState([]);
     const [searchTitle, setSearchTitle] = useState("");
@@ -45,12 +46,13 @@ const ListPlants = () => {
         }
     };
 
+    //sets the search title based on user input
     const onChangeSearchTitle = e => {
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
     };
 
-    //clears search result
+    //clears the search result
     const clearSearch = () => {
         try {
             setSearchTitle("");

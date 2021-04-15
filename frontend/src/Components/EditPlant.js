@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 
+//Component that edits the selected plant based on the ListPlants component
 const EditPlant = ( {plant} ) => {
     const [description, setDescription] = useState(plant.description);
     const [title, setTitle] = useState(plant.title);
 
-    //edit content
+    //edits the plant's content
     const updateContent = async(e) => {
         e.preventDefault();
         try {
@@ -13,7 +14,8 @@ const EditPlant = ( {plant} ) => {
                 method: "PUT",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(body)
-            })
+            });
+            //once response has been set page will refresh
             window.location = "/";
         } catch (err) {
             console.error(err.message);

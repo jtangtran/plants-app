@@ -12,7 +12,7 @@ const create = async(req, res) => {
     }
 }
 
-// //gets all the plants
+// gets all the plants
 const getAllPlants = async (req, res) => {
     try {
         const allPlants = await pool.query("select * from plant order by title");
@@ -22,7 +22,7 @@ const getAllPlants = async (req, res) => {
     }
 }
 
-//get a plant by id
+//get plant by id
 const getPlantById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -44,7 +44,7 @@ const getPlantInfoByTitle = async (req, res) => {
     }
 }
 
-//update plants
+//update plant
 const updatePlant = async (req, res) => {
     try {
         const { id } = req.params;
@@ -53,7 +53,6 @@ const updatePlant = async (req, res) => {
             "Update plant set description = $1, title = $2 where plant_id = $3", 
             [description, title, id]
         );
-
         res.json("Plant has been successfully updated");
     } catch (err){
         console.error(err.message);

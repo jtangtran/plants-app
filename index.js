@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const router = require("./app/routes/plant.route");
+const router = require("./api/routes/plant.route");
 const PORT = process.env.PORT || 5000;
 const path = require("path");
 
@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use('/', router);
 
+//catch all method
 //reroutes the user to the mainpage if the user enters an invalid route
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend/build/index.html"));

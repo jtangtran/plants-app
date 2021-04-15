@@ -1,4 +1,4 @@
-
+//Routes 
 const plants = require("../controllers/plant.controller.js");
 
 var router = require("express").Router();
