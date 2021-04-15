@@ -33,11 +33,11 @@ const getPlantById = async (req, res) => {
     }
 }
 
-//gets plants by search of title
+//gets plants by title search
 const getPlantInfoByTitle = async (req, res) => {
     try {
         const { title } = req.params;
-        const plant = await pool.query("select * from plant where title like $1", [`${title}%`]);
+        const plant = await pool.query("select * from plant where upper(title) like upper($1)", [`${title}%`]);
         res.json(plant.rows);
     } catch (err) {
         console.error(err.message);
